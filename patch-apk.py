@@ -187,7 +187,7 @@ def runApkTool(params):
 def verifyPackageName(pkgname):
 	#Get a list of installed packages matching the given name
 	packages = []
-	proc = subprocess.run(["adb", "shell", "pm", "list", "packages"], stdout=subprocess.PIPE)
+	proc = subprocess.run(["adb", "shell", "pm", "list", "packages","--user 0"], stdout=subprocess.PIPE)
 	if proc.returncode != 0:
 		print("Error: Failed to run 'adb shell pm list packages'.")
 		sys.exit(1)
